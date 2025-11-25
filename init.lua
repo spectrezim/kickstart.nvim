@@ -909,10 +909,17 @@ require('lazy').setup({
     ---@module 'obsidian'
     ---@type obsidian.config.ClientOpts
     opts = {
+      ui = {
+        enable = false,
+      },
       workspaces = {
-        {
+        { -- Vault location on desktop
           name = 'notes',
           path = '~/Notes',
+        },
+        { -- Vault location on laptop
+          name = 'notes',
+          path = '~/Documents/Notes',
         },
       },
       completion = {
