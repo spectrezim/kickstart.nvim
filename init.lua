@@ -967,3 +967,29 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- Settings for writing
+wrapEnabled = false
+toggleWrap = function()
+  if wrapEnabled then
+    vim.opt.linebreak = false
+    vim.opt.wrap = false
+    vim.keymap.del({ 'n', 'v' }, 'j')
+    vim.keymap.del({ 'n', 'v' }, 'k')
+    vim.keymap.del({ 'n', 'v' }, '0')
+    vim.keymap.del({ 'n', 'v' }, '^')
+    vim.keymap.del({ 'n', 'v' }, '$')
+    wrapEnabled = false
+  else
+    vim.opt.linebreak = true
+    vim.opt.wrap = true
+    vim.opt.columns = 80
+    vim.keymap.set({ 'n', 'v' }, 'j', 'gj')
+    vim.keymap.set({ 'n', 'v' }, 'k', 'gk')
+    vim.keymap.set({ 'n', 'v' }, '0', 'g0')
+    vim.keymap.set({ 'n', 'v' }, '^', 'g^')
+    vim.keymap.set({ 'n', 'v' }, '$', 'g$')
+    wrapEnabled = true
+  end
+end
+vim.keymap.set('n', '<leader>w', toggleWrap)
