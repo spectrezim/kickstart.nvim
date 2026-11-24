@@ -933,6 +933,14 @@ require('lazy').setup({
     'MeanderingProgrammer/render-markdown.nvim',
   },
 
+  {
+    'shortcuts/no-neck-pain.nvim',
+    version = "*",
+    opts = {
+      width = 87,
+    },
+  },
+
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
   --
