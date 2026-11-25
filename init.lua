@@ -926,6 +926,9 @@ require('lazy').setup({
         nvim_cmp = true,
         min_chars = 2,
       },
+      note_id_func = function()
+        return os.date '%Y%m%d-%H%M%S'
+      end,
     },
   },
 
