@@ -935,7 +935,7 @@ require('lazy').setup({
 
   {
     'shortcuts/no-neck-pain.nvim',
-    version = "*",
+    version = '*',
     opts = {
       width = 87,
     },
@@ -991,17 +991,18 @@ toggleWrap = function()
     vim.keymap.del({ 'n', 'v' }, '0')
     vim.keymap.del({ 'n', 'v' }, '^')
     vim.keymap.del({ 'n', 'v' }, '$')
+    vim.cmd 'NoNeckPain'
     wrapEnabled = false
   else
     vim.opt.linebreak = true
     vim.opt.wrap = true
-    vim.opt.columns = 80
     vim.keymap.set({ 'n', 'v' }, 'j', 'gj')
     vim.keymap.set({ 'n', 'v' }, 'k', 'gk')
     vim.keymap.set({ 'n', 'v' }, '0', 'g0')
     vim.keymap.set({ 'n', 'v' }, '^', 'g^')
     vim.keymap.set({ 'n', 'v' }, '$', 'g$')
+    vim.cmd 'NoNeckPain'
     wrapEnabled = true
   end
 end
-vim.keymap.set('n', '<leader>w', toggleWrap)
+vim.keymap.set('n', '<leader>n', toggleWrap)
